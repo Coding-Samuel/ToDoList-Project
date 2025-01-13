@@ -1,7 +1,7 @@
-import { useState,useRef } from "react";
+import {useRef } from "react";
 
 
-export default function AddedSection({todoListIndex, modifyTodoLists, todoLists}){
+export default function AddedSection({todoListIndex, modifyTodoLists, todoLists, setContent}){
     // holds the currently added task
     const task = useRef();
     const currentTodoList = todoLists[todoListIndex];
@@ -22,6 +22,7 @@ export default function AddedSection({todoListIndex, modifyTodoLists, todoLists}
                         }]
                     }:list
                 )
+
                 return newTodoLists;
         });
 
@@ -45,14 +46,24 @@ export default function AddedSection({todoListIndex, modifyTodoLists, todoLists}
                 )
                 
                 return modifiedTodoLists
+                
         });
             
+    }
+    function handleRemoveTodoList(){
+        setContent(()=> "notAddedProject")
+        modifyTodoLists((prevTodoLists => 
+            prevTodoLists.filter(list => currentTodoList === list)
+        ))
     }
     return(
         <div className="flex flex-col mt-28 h-auto w-full pl-8 pr-64 space-y-4">
             <div className="flex justify-between">
                 <h2 className="font-bold text-3xl">{currentTodoList.TITLE}</h2>
-                <p className="p-3 transition ease-out bg-red-500 hover:bg-red-600  rounded-md" onClick={()=>console.log(currentTodoList) 
+                <p className="p-3 transition ease-out bg-red-500 hover:bg-red-600  rounded-md" onClick={()=> {
+                    console.log(todoLists)  
+                    handleRemoveTodoList()
+                }
                 }>Delete</p>
             </div>
 

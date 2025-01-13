@@ -14,8 +14,8 @@ function App() {
  
   return (
     <div className="flex w-screen">
-      <SideBar currentTodoListIndex={currentTodoListIndex} showContent={setContent} todoLists={todoLists}/>
-      <Content todoListIndex={todoListIndex}  content={content} todoLists={todoLists}  modifyTodoLists={modifyTodoLists} save={setContent}/>
+      <SideBar currentTodoListIndex={currentTodoListIndex} setContent={setContent} todoLists={todoLists}/>
+      <Content todoListIndex={todoListIndex}  content={content} todoLists={todoLists}  modifyTodoLists={modifyTodoLists} setContent={setContent}/>
     </div>
   );
 }

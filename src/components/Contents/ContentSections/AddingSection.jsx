@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddingSection({save, modifyTodoLists, todoLists}){
+export default function AddingSection({setContent, modifyTodoLists, todoLists}){
     const [input, addInput] = useState({});
     
     function handleInput(e){
@@ -22,8 +22,8 @@ export default function AddingSection({save, modifyTodoLists, todoLists}){
                     //   const inputIsFilled = Object.values(inputs.current).every(
                     //     (input) => input && input.value.trim() !== "" 
                     //   ); 
-                    //   inputIsFilled && save(("addedProject"))
-                    save(("notAddedProject"))
+                    //   inputIsFilled && setContent(("addedProject"))
+                    setContent(("notAddedProject"))
                     
                     modifyTodoLists((prevTodoLists)=> {
                         return [...prevTodoLists, input] 
