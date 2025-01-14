@@ -9,20 +9,25 @@ export default function AddingSection({setContent, modifyTodoLists, todoLists}){
            ...prevInput,
            [id]:value,
            id:todoLists.length,
-           "TASKS":""
+           "TASKS":"",
+           active: false
         }))
     }
     return(
 
     <div className="h-full  w-full flex flex-col mt-28 pl-16 pr-64">
             <div className="flex items-center justify-end gap-x-3">
-                <span className="p-2 w-20 text-center rounded-lg hover:bg-gray-300 transition ease-out">Cancel</span>
+                <span className="p-2 w-20 text-center rounded-lg hover:bg-gray-300 transition ease-out" onClick={()=> 
+                    setContent(()=> "notAddedProject")
+                }>Cancel</span>
                 <button type="submit"  className="text-white p-2 w-20   text-center rounded-lg bg-gray-700 hover:bg-gray-800 transition ease-out" 
                 onClick={()=> {
+
                     //   const inputIsFilled = Object.values(inputs.current).every(
                     //     (input) => input && input.value.trim() !== "" 
                     //   ); 
                     //   inputIsFilled && setContent(("addedProject"))
+
                     setContent(("notAddedProject"))
                     
                     modifyTodoLists((prevTodoLists)=> {

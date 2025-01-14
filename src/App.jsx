@@ -4,17 +4,17 @@ import Content from "./components/Contents/Content";
 
 function App() {
   const [content,setContent] = useState("notAddedProject");
-  const [todoLists, modifyTodoLists]= useState([]);
-  const [todoListIndex, setTodoList]= useState({});
+  const [todoLists, modifyTodoLists] = useState([]);
+  const [todoListIndex, setTodoList] = useState({});
   
-   function currentTodoListIndex (index){
+  function currentTodoListIndex (index){
       setTodoList(index);
   }
 
  
   return (
     <div className="flex w-screen">
-      <SideBar currentTodoListIndex={currentTodoListIndex} setContent={setContent} todoLists={todoLists}/>
+      <SideBar currentTodoListIndex={currentTodoListIndex} setContent={setContent} todoLists={todoLists} modifyTodoLists={modifyTodoLists}/>
       <Content todoListIndex={todoListIndex}  content={content} todoLists={todoLists}  modifyTodoLists={modifyTodoLists} setContent={setContent}/>
     </div>
   );

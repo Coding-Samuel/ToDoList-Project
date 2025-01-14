@@ -1,4 +1,4 @@
-function SideBar({setContent,todoLists,currentTodoListIndex}){
+function SideBar({setContent,todoLists,currentTodoListIndex,modifyTodoLists}){
     
     return(
         <div className="w-1/4  bg-black h-screen  rounded-tr-2xl pt-20 pl-6 pr-5 mt-6 ">
@@ -7,10 +7,21 @@ function SideBar({setContent,todoLists,currentTodoListIndex}){
 
             <div className="mt-4  text-gray-500">
                 {todoLists.map((todoList,index)=>(
-                    <p className="mt-2 p-2 bg-slate-400 rounded-md w-full break-words" 
+                    <p className={`${todoList.active? "text-white bg-gray-400 bg-opacity-10":""} mt-2 p-2  rounded-md w-full break-words`} 
                         onClick={()=> {
                                 currentTodoListIndex(index)
                                 setContent(()=>"addedProject")
+                                
+                                modifyTodoLists((prevTodoLists)=> (
+                                    prevTodoLists.map(list => (
+                                        // list.TITLE === todoList.TITLE?
+                                        {
+                                            ...list,
+                                            active:list.id === todoList.id? true: false
+                                        }
+                                    ))
+                                ))
+                                
                             }
                         }  
                             key={index}>{todoList.TITLE}
