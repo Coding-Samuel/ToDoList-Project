@@ -3,7 +3,7 @@ import SideBar from "./components/Sidebar";
 import Content from "./components/Contents/Content";
 
 function App() {
-  const [content,setContent] = useState("notAddedProject");
+  const [content, setContent] = useState("notAddedProject");
   const [todoLists, modifyTodoLists] = useState([]);
   const [todoListIndex, setTodoList] = useState({});
   

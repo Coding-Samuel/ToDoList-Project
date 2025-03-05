@@ -1,8 +1,8 @@
 import {useRef } from "react";
-import { handleAddTask, handleRemoveTask, handleRemoveTodoList } from "./AddedSectionhandles";
+import { handleAddTask, handleRemoveTask, handleRemoveTodoList } from "./AddedSectionHandles";
 
 export default function AddedSection({ todoListIndex, modifyTodoLists, todoLists, setContent}){
-    // holds the currently added task
+    // Holds the currently added task
     const task = useRef();
 
     // The Displayed todo list

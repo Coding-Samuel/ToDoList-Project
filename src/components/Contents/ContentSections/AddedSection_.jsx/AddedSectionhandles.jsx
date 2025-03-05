@@ -1,4 +1,8 @@
 export function handleAddTask(currentTodoList,task,modifyTodoLists){
+    let taskValue = task.current.value.trim();
+
+    // prevents the user from inputting an empty value 
+    if (taskValue === "") return 
 
     // updates the todolists state
     modifyTodoLists(prevTodoLists =>{
@@ -10,14 +14,13 @@ export function handleAddTask(currentTodoList,task,modifyTodoLists){
                 TASKS:[
                 ...list.TASKS,
                 {
-                    id:list.TASKS.length, task: task.current.value.trim()
+                    id:list.TASKS.length, task: taskValue
                 }]
             }:list
         )
-
         return newTodoLists;
     });
-
+    task.current.value = "";
 }
 
 export function handleRemoveTask(todoTaskIndex,currentTodoList,modifyTodoLists){

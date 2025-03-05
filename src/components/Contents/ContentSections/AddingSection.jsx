@@ -13,6 +13,26 @@ export default function AddingSection({setContent, modifyTodoLists, todoLists}){
            active: false
         }))
     }
+    function handleSave(){
+        
+        const INPUTS  = ["TITLE","DESCRIPTION","DATE"];
+
+        let inputIsFilled = INPUTS.every((field)=> 
+            input[field] && input[field].trim() !== "");
+
+        if(inputIsFilled){
+            setContent(("notAddedProject"))
+                    
+            modifyTodoLists((prevTodoLists)=> {
+                return [...prevTodoLists, input] 
+            })
+        }
+        else{
+            
+        }
+        
+        
+    }
     return(
 
     <div className="h-full  w-full flex flex-col mt-28 pl-16 pr-64">
@@ -21,23 +41,7 @@ export default function AddingSection({setContent, modifyTodoLists, todoLists}){
                     setContent(()=> "notAddedProject")
                 }>Cancel</span>
                 <button type="submit"  className="text-white p-2 w-20   text-center rounded-lg bg-gray-700 hover:bg-gray-800 transition ease-out" 
-                onClick={()=> {
-
-                    //   const inputIsFilled = Object.values(inputs.current).every(
-                    //     (input) => input && input.value.trim() !== "" 
-                    //   ); 
-                    //   inputIsFilled && setContent(("addedProject"))
-
-                    setContent(("notAddedProject"))
-                    
-                    modifyTodoLists((prevTodoLists)=> {
-                        return [...prevTodoLists, input] 
-                    })
-
-                      
-                  
-                }}
-                    >Save
+                onClick={handleSave}>Save
                 </button>
             </div>
 
