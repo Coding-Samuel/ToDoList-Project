@@ -1,9 +1,9 @@
 import { useState } from "react";
 import SideBar from "./components/Sidebar";
-import Content from "./components/Contents/Content";
+import Content from "./components/Contents/ContentSections/Content";
 
 function App() {
-  const [content, setContent] = useState("notAddedProject");
+  const [content, setContent] = useState("addingProject");
   const [todoLists, modifyTodoLists] = useState([]);
   const [todoListIndex, setTodoList] = useState({});
   

@@ -38,10 +38,11 @@ export default function AddedSection({ todoListIndex, modifyTodoLists, todoLists
 
                 {
                     currentTodoList.TASKS? 
-                        <div className="rounded-md max-h-64 flex flex-col items-center justify-between overflow-auto bg-gray-200 w-full p-7 ">
+                        <div className="rounded-md max-h-64 flex flex-col items-center justify-between
+                        overflow-auto bg-gray-200 w-full p-7 ">
                             {
                                 currentTodoList.TASKS.map((todoTask,index)=>(
-                                    <div className="flex w-full items-center justify-between " key={index}>
+                                    <div className="flex w-full items-center  justify-between " key={index}>
                                         <p>{todoTask.task}</p>
                                         <p className="p-2 transition ease-linear hover:text-red-600  rounded-md" onClick={()=> 
                                             // Removes task from current todo list's TASKS 
